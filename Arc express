@@ -1,0 +1,140 @@
+basics you know 
+
+var express=require("express);
+//we are requiring/loading the express js module in our project..
+
+Ancient post. I think the original poster was confused about why the syntax to call the function exported by module express is
+
+var app = express() 
+
+
+require('xxx.js'), where the .js extension can be omitted, returns whatever is exported by that xxx.js file. 
+If that xxx.js file exports an object, require('xxx.js') returns an object; if a function is exported, require('xxx.js') 
+returns a function; if a single string is exported, require('xxx.js') returns a string...
+
+If you check source code of file express.js, you will see that it exports a single function. So in
+
+var express = require('express')
+The first express is assigned whatever is exported by module express, which in this case happens to be a single function. express is a function,
+not a reference to a module. Hence on second row you just invoke that function:
+
+var app = express()//the above variable containes a function so you just invoke it ....
+
+
+
+In computer networking, localhost is a hostname that refers to the current computer used to access it.
+It is typically 127.0.0.1, however it could be different. Basically, it is your machine.
+
+3000 is the port number it will communicate on. It is pretty much an arbitrary number as long as it isn’t clashing with something else. 
+Your website is being hosted locally in your machine on port 3000.
+
+
+
+postman is a tool to do api testing
+we can view responses we can make requests via the differenet http methods we can create collections for the grouping of the api requests we can export collections also 
+we can set authentication headers 
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+This app starts a server and listens on port 3000 for connections. 
+The app responds with “Hello World!” for requests to the root URL (/) or route. For every other path, it will respond with a 404 Not Found.
+
+
+http method
+every website has crud operations 
+
+1.Create -create a new resource 
+2.Read -  read resource from the server 
+3.Update  -update a resource 
+4.Delete  -Delete a resource 
+
+
+
+HTTP stands for Hyper Text Transfer Protocol
+
+WWW is about communication between web clients and servers
+
+Communication between client computers and web servers is done by sending HTTP Requests and receiving HTTP Responses
+
+The set of common methods for HTTP /most frequently used 
+
+1.GET
+The GET method is used to retrieve information from the given server using a given URI. 
+Requests using GET should only retrieve data and should have no other effect on the data.
+like when you type localhost:3000 the browser will make get request to our server for the files or data to show ..
+
+
+This is the main method used for document retrieval
+
+2	HEAD
+Same as GET, but transfers the status line and header section only.
+
+3.POST
+A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+The POST method is used when you want to send some data to the server, for example, file update, form data, etc.
+The following example makes use of POST method to send a form data to the server, which will be processed by a process.cgi and finally a response will be returned:
+
+4.delete
+The DELETE method is used to request the server to delete a file at a location specified by the given URL. 
+The following example requests the server to delete the given file hello.htm at the root of the server:
+
+DELETE /hello.htm HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: www.tutorialspoint.com
+Accept-Language: en-us
+Connection: Keep-Alive
+The server will delete the mentioned file hello.htm and will send the following response back to the client:
+
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Content-type: text/html
+Content-length: 30
+Connection: Closed
+
+
+5.Put
+
+PUT is used to send data to a server to create/update a resource. The difference between POST and PUT is that PUT requests are idempotent. 
+That is, calling the same PUT request multiple times will always produce the same result.
+
+PUT method is used to update resource available on the server. Typically,
+it replaces whatever exists at the target URL with something else. You can use it to make a new resource or overwrite an existing one.
+
+
+
+in crud
+post=Create 
+get=read 1 or many
+put=update
+delete =delete
+
+
+Routing
+Routing refers to how an server side application responds to a client request to a particular endpoint.
+app.get('/home', (req, res) => {
+  res.send('Home Page');
+});
+app.get('/about', (req, res) => {
+  res.send('About');
+});
+Consider the above code as a bare minimum website which has two endpoints, /home and /about. If a client makes a request for home page, 
+it will only response with Home Page and on /about it will send the response: About Page.
+
+
+Routing is made from the word route. It is used to determine the specific behavior of an application.
+It specifies how an application responds to a client request to a particular route, URI or path and a specific HTTP request method (GET, POST, etc.).
+It can handle different types of HTTP requests.
+req is an object containing information about the HTTP request that raised the event. In response to req, you use res to send back the desired HTTP response.
+
+expess js allow us to build the url dynamically also that is dynamica routes it is specified by :anything you can pass a dynamic value to the route 
+
+explained in the folders we can pass more than 1 params too the url 
+we collect the data using req.params.variable 
+
+
